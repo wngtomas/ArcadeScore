@@ -1,0 +1,16 @@
+<nav class="menu">
+  <button
+    class="menu-button"
+    [class.active]="selectedPage() === 'register'"
+    (click)="pageSelected.emit('register')"
+  >
+    Registrar Pontuação
+  </button>
+  <button
+    class="menu-button"
+    [class.active]="selectedPage() === 'ranking'"
+    (click)="pageSelected.emit('ranking')"
+  >
+    Ranking
+  </button>
+</nav>

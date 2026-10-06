@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="ArcadeScore.API/ArcadeScore.API.csproj" />
+  <Project Path="ArcadeScore.Application/ArcadeScore.Application.csproj" />
+  <Project Path="ArcadeScore.Domain/ArcadeScore.Domain.csproj" />
+  <Project Path="ArcadeScore.Infra.Data/ArcadeScore.Infra.Data.csproj" />
+  <Project Path="ArcadeScore.Infra.Ioc/ArcadeScore.Infra.Ioc.csproj" />
+</Solution>

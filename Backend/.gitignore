@@ -1,0 +1,35 @@
+# Pastas do Visual Studio (configurações locais)
+.vs/
+
+# Arquivos de build (gerados ao compilar)
+bin/
+obj/
+
+# Arquivos pessoais do Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Resultados de testes
+TestResults/
+[Tt]est[Rr]esult*/
+
+# Pacotes NuGet baixados
+*.nupkg
+packages/
+
+# Logs
+*.log
+
+# Configurações com dados sensíveis (se você criar)
+appsettings.Development.json
+secrets.json
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# Sistema
+.DS_Store
+Thumbs.db

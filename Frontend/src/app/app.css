@@ -1,0 +1,24 @@
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  padding: 24px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.empty-message {
+  margin-top: 80px;
+  opacity: 0.7;
+}
+
+/* Telas pequenas: menu em cima, tela embaixo */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

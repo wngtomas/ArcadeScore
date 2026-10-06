@@ -1,0 +1,47 @@
+<div class="overlay" (click)="closed.emit()">
+
+  <!-- 
+    $event.stopPropagation(): 
+    $event se refere ao clique, para entender stopPropagation(), temos que entender a estrutura
+    do nosso popup: Overlay => Popup => Header, Título, Botão e Conteúdo. Como stopPropagation()
+    está na classe do popup, ele não permite que o evento de clique suba para o overlay. 
+    Dessa forma, ao clicar no popup o popup não fecha, porém se clicar fora do popup
+    (classe overlay), o popup fecha - roda closed.emit()
+  -->
+  <div class="popup" (click)="$event.stopPropagation()">
+    <div class="popup-header">
+      <h3 class="popup-title">Estatísticas Jogador - {{ playerName() }}</h3>
+      <button class="close-button" (click)="closed.emit()" aria-label="Fechar">✕</button>
+    </div>
+    <hr class="divider" />
+
+    <app-error-message [message]="errorMessage()" />
+
+    <!-- 
+      s é uma variável temporária que facilita o acesso aos valores do signal statistics
+    -->
+    @if (statistics(); as s) {
+      <ul class="stats">
+        <li>
+          <span>Partidas Jogadas</span><strong>{{ s.gamesPlayed }}</strong>
+        </li>
+        <li>
+          <span>Média de Pontuação</span><strong>{{ formatNumber(s.averagePoints) }}</strong>
+        </li>
+        <li>
+          <span>Maior Pontuação</span><strong>{{ formatNumber(s.highestScore) }}</strong>
+        </li>
+        <li>
+          <span>Menor Pontuação</span><strong>{{ formatNumber(s.lowestScore) }}</strong>
+        </li>
+        <li>
+          <span>Qtd de Vezes que Bateu o Próprio Recorde</span
+          ><strong>{{ s.recordBrokenCount }}</strong>
+        </li>
+        <li>
+          <span>Tempo de Jogo</span><strong>{{ formatPlayingTime(s.playingTimeInDays) }}</strong>
+        </li>
+      </ul>
+    }
+  </div>
+</div>

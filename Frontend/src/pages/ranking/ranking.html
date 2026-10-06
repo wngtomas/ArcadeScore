@@ -1,0 +1,34 @@
+<section class="card">
+  <h2 class="card-title">Ranking - Maiores Pontuações</h2>
+  <hr class="divider" />
+  
+  <app-error-message [message]="errorMessage()" />
+
+  @if (ranking().length === 0 && !errorMessage()) {
+    <p class="empty">Nenhuma pontuação registrada ainda.</p>
+  }
+
+  <ol class="ranking-list">
+
+    @for (item of ranking(); track item.position) {
+    <!-- 
+      Ao clicar em uma linha da tabela (1 jogador), rodamos a função openPopup().
+      A função openPopup() definida em ranking.ts coloca o nome do jogador
+      no signal selectedPlayer(). Esse signal controla se o popup está aberto.
+    -->
+      <li class="ranking-row" (click)="openPopup(item.playerName)">
+        <span class="position">{{ item.position }}</span>
+        <span class="nickname">{{ item.playerName }}</span>
+        <span class="points">{{ formatNumber(item.points) }} pontos</span>
+      </li>
+    }
+  </ol>
+</section>
+
+<!-- 
+  Se selectedPlayer() for true, exibimos o component player statistics, e passando a função
+  closePopup() como uma prop chamada closed
+-->
+@if (selectedPlayer(); as name) {
+  <app-player-statistics [playerName]="name" (closed)="closePopup()" />
+}

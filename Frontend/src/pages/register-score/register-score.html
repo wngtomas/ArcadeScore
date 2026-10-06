@@ -1,0 +1,28 @@
+<section class="card">
+  <h2 class="card-title">Registrar Pontuação</h2>
+  <hr class="divider" />
+
+  <div class="form-row">
+    <label for="playedAt">Data da Partida</label>
+    <input id="playedAt" type="date" [(ngModel)]="playedAt" />
+  </div>
+
+  <div class="form-row">
+    <label for="points">Pontuação</label>
+    <input id="points" type="number" min="0" [(ngModel)]="points" />
+  </div>
+
+  <div class="form-row">
+    <label for="playerName">Jogador</label>
+    <input id="playerName" type="text" [(ngModel)]="playerName" />
+  </div>
+
+  <app-error-message [message]="errorMessage()" />
+  @if (successMessage()) {
+    <p class="success">{{ successMessage() }}</p>
+  }
+
+  <div class="actions">
+    <button class="btn" (click)="save()" [disabled]="saving()">Salvar</button>
+  </div>
+</section>

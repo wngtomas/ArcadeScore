@@ -1,0 +1,6 @@
+# Pasta do Visual Studio na raiz
+.vs/
+
+# Sistema
+.DS_Store
+Thumbs.db

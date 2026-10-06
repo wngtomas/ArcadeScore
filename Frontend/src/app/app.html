@@ -1,0 +1,32 @@
+<app-header />
+
+<div class="layout">
+  <aside class="sidebar">
+    <app-menu
+    
+      // Property Binding, passa um valor de App para Menu
+      // Coloca o valor do signal selectedPage e passa pro Menu
+      // Vai ser usado para definir se o botão está ativo ou não, e aí conseguimos aplicar
+      // a estilização de acordo
+      [selectedPage]="selectedPage()" 
+
+      // Event Binding, Menu emite um evento para App
+      // No component Menu.ts, temos: pageSelected = output<Page>(); ou seja o component Menu
+      // passa para esse componennt (pai) um dado do tipo Page
+      // No component Menu.html (click)="pageSelected.emit('register')"
+      // Ou seja, passa para esse component (pai) o valor 'register'
+      // Aqui recemoso o valor 'register' e rodamos a função selectPage() presente em Menu.ts
+      (pageSelected)="selectPage($event)" />
+
+  </aside>
+
+  <main class="content">
+    @if (selectedPage() === 'register') {
+      <app-register-score />
+    } @else if (selectedPage() === 'ranking') {
+      <app-ranking />
+    } @else {
+      <p class="empty-message">Clique em um dos botões para exibir a tela.</p>
+    }
+  </main>
+</div>

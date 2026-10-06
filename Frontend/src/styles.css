@@ -1,0 +1,64 @@
+/* ===== Cores do sistema ===== */
+:root {
+  --color-background: #FFF5F5;
+  --color-surface: #F7D6D0;
+  --color-accent: #E2B4BD;
+  --color-text: #4A4A4A;
+
+  /* Cores extras */
+  --color-accent-dark: #A63A56;
+  --color-error: #B3261E;
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== Card (tamanho único para todas as telas) ===== */
+.card {
+  width: 100%;                              /* ocupa o espaço disponível... */
+  max-width: 640px;                         /* ...mas nunca passa de 640px */
+  min-height: 460px;                        /* altura mínima igual em todas as telas */
+  background-color: var(--color-surface);   /* cor de fundo da paleta */
+  border: 2px solid var(--color-accent);    /* borda na cor de destaque */
+  border-radius: 8px;                       /* cantos arredondados */
+  padding: 24px;                            /* espaço entre a borda e o conteúdo */
+  display: flex;                            /* organiza os filhos em linha ou coluna */
+  flex-direction: column;                   /* filhos empilhados, um abaixo do outro */
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Linha que separa o título do conteúdo, de ponta a ponta do card */
+.divider {
+  border: none;
+  border-top: 2px solid var(--color-accent);
+  margin: 16px -24px;
+}
+
+/* ===== Botão padrão ===== */
+.btn {
+  background-color: var(--color-accent-dark);
+  color: var(--color-background);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  cursor: pointer;                         
+}
+
+.btn:disabled {
+  opacity: 0.6;                             
+  cursor: not-allowed;
+}
